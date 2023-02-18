@@ -6,6 +6,8 @@ public class TestMoney : MonoBehaviour
 {
     public RestaurantManager moneySystem;
     public int amount;
+    [SerializeField]
+    int itemID;
 
     public void increaseMoneyTest() {
         moneySystem.money += amount;
@@ -14,6 +16,7 @@ public class TestMoney : MonoBehaviour
     public void decreaseMoneyTest() {
         if (moneySystem.money >= amount) {
             moneySystem.money -= amount;
+            moneySystem.itemAmounts[itemID] += 1;
         }
     }
 }
