@@ -7,10 +7,13 @@ public class Player : MonoBehaviour
     float horizontal, vertical;
     public float speed;
     public Rigidbody2D rb;
+    public bool canMove = true;
 
     void Update() {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
-        rb.velocity = new Vector2(horizontal, vertical).normalized * speed;
+        if (canMove) {
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
+            rb.velocity = new Vector2(horizontal, vertical).normalized * speed;
+        }
     }
 }

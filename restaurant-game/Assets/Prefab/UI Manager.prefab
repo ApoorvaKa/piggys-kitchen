@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4531555765424279619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4531555765424279617}
+  - component: {fileID: 4531555765424279618}
+  m_Layer: 0
+  m_Name: UI Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4531555765424279617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4531555765424279619}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 510.16898, y: 262.15198, z: -2.979707}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4531555765424279618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4531555765424279619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1e15095b3c841688ba38f50175b6ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DayCompleteMenu: {fileID: 0}
+  IngredientsMenu: {fileID: 0}
+  PerksMenu: {fileID: 0}
+  GoldEarnedText: {fileID: 0}
+  DailyCostText: {fileID: 0}
+  GoldTotalText: {fileID: 0}
+  BreadText: {fileID: 0}
+  CheeseText: {fileID: 0}
+  ButterText: {fileID: 0}
+  TomatoText: {fileID: 0}
+  numBread: 0
+  numCheese: 0
+  numButter: 0
+  numTomato: 0
+  StoveCostText: {fileID: 0}
+  TipsCostText: {fileID: 0}
+  PatienceCostText: {fileID: 0}
+  StoveLevel: {fileID: 0}
+  TipsLevel: {fileID: 0}
+  PatienceLevel: {fileID: 0}
+  StoveLevelNum: 0
+  TipsLevelNum: 0
+  PatienceLevelNum: 0
+  Levels:
+  - {fileID: -1033495180, guid: e12a717a8cd0645e69c55a250f48ea7e, type: 3}
+  - {fileID: -974825075, guid: e12a717a8cd0645e69c55a250f48ea7e, type: 3}
+  - {fileID: -1243149060, guid: e12a717a8cd0645e69c55a250f48ea7e, type: 3}
+  - {fileID: 1693778661, guid: e12a717a8cd0645e69c55a250f48ea7e, type: 3}

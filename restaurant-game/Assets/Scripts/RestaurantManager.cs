@@ -12,6 +12,7 @@ public class RestaurantManager : MonoBehaviour
 
     // public list of employees
     public Employee[] employees;
+    GameObject player;
 
     public Image timerBar;
     public TextMeshProUGUI moneyText;
@@ -25,6 +26,7 @@ public class RestaurantManager : MonoBehaviour
     void Start()
     {
         currentTime = maxTime;
+        player = FindObjectOfType<Player>().gameObject;
     }
 
     // Update is called once per frame
@@ -39,7 +41,7 @@ public class RestaurantManager : MonoBehaviour
             timerBar.fillAmount = currentTime / maxTime;
         } else {
             Debug.Log("Time");
-            Time.timeScale = 0;
+            player.GetComponent<Player>().canMove = false;
         }
     }
 }
