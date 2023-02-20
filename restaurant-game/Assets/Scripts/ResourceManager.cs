@@ -10,16 +10,21 @@ public class ResourceManager : MonoBehaviour
     public GameObject IngredientsMenu;
     public GameObject PerksMenu;
 
-    [Header("Gold Values")]
+    [Header("Day End Gold Values")]
     public TextMeshProUGUI GoldEarnedText;
     public TextMeshProUGUI DailyCostText;
     public TextMeshProUGUI GoldTotalText;
 
-    [Header("Ingredients")]
+    [Header("Ingredients Numbers")]
     public TextMeshProUGUI BreadText;
     public TextMeshProUGUI CheeseText;
     public TextMeshProUGUI ButterText;
     public TextMeshProUGUI TomatoText;
+
+    [Header("Perks Costs")]
+    public TextMeshProUGUI StoveCostText;
+    public TextMeshProUGUI TipsCostText;
+    public TextMeshProUGUI PatienceCostText;
 
     public int numBread = 0;
     public int numCheese = 0;
