@@ -88,22 +88,22 @@ public class ResourceManager : MonoBehaviour
 
     // PURCHASE PERKS
     public void OnClickUpgradeStoveButton(){
-        StoveLevelNum++;
-        if (StoveLevelNum < 4){
+        if (StoveLevelNum < 3){
+            StoveLevelNum++;
             StoveLevel.GetComponent<Image>().sprite = Levels[StoveLevelNum];
         }
     }
 
     public void OnClickUpgradeTipsButton(){
-        TipsLevelNum++;
-        if (TipsLevelNum < 4){
+        if (TipsLevelNum < 3){
+            TipsLevelNum++;
             TipsLevel.GetComponent<Image>().sprite = Levels[TipsLevelNum];
         }
     }
 
     public void OnClickUpgradePatienceButton(){
-        PatienceLevelNum++;
-        if (PatienceLevelNum < 4){
+        if (PatienceLevelNum < 3){
+            PatienceLevelNum++;
             PatienceLevel.GetComponent<Image>().sprite = Levels[PatienceLevelNum];
         }
     }

@@ -10,8 +10,7 @@ public class RestaurantManager : MonoBehaviour
     public int money_multiplier = 1;
     public int money_per_second = 0;
 
-    // public list of employees
-    public Employee[] employees;
+    public GameObject background, dayComplete;
     GameObject player;
 
     public Image timerBar;
@@ -36,12 +35,17 @@ public class RestaurantManager : MonoBehaviour
             itemTexts[i].text = itemNames[i] + ": " + itemAmounts[i].ToString();
         }
         moneyText.text = "$ " + money.ToString();
-        if (currentTime > 0) {
+        if (currentTime > 0 && player.GetComponent<Player>().canMove == true) {
             currentTime -= Time.deltaTime;
             timerBar.fillAmount = currentTime / maxTime;
         } else {
             Debug.Log("Time");
             player.GetComponent<Player>().canMove = false;
+            if (currentTime <= 0) {
+                background.SetActive(true);
+                dayComplete.SetActive(true);
+            }
+            currentTime = maxTime;
         }
     }
 }
