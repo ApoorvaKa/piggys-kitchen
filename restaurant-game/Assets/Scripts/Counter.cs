@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlacePickupItem : MonoBehaviour
+public class Counter : MonoBehaviour
 {
     public Item item;
     [SerializeField]
