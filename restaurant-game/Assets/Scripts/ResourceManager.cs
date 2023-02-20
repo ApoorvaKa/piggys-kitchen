@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ResourceManager : MonoBehaviour
 {
@@ -21,17 +22,29 @@ public class ResourceManager : MonoBehaviour
     public TextMeshProUGUI ButterText;
     public TextMeshProUGUI TomatoText;
 
-    [Header("Perks Costs")]
-    public TextMeshProUGUI StoveCostText;
-    public TextMeshProUGUI TipsCostText;
-    public TextMeshProUGUI PatienceCostText;
-
     public int numBread = 0;
     public int numCheese = 0;
     public int numButter = 0;
     public int numTomato = 0;
 
-    // UI INTERACTION
+    [Header("Perks Costs")]
+    public TextMeshProUGUI StoveCostText;
+    public TextMeshProUGUI TipsCostText;
+    public TextMeshProUGUI PatienceCostText;
+
+    [Header("Perks Levels")]
+    public GameObject StoveLevel;
+    public GameObject TipsLevel;
+    public GameObject PatienceLevel;
+
+    public int StoveLevelNum = 0;
+    public int TipsLevelNum = 0;
+    public int PatienceLevelNum = 0;
+
+    [Header("Perks Sprites")]
+    public Sprite[] Levels;
+
+    // GENERAL UI INTERACTION
     public void OnClickIngredientsButton(){
         DayCompleteMenu.SetActive(false);
         IngredientsMenu.SetActive(true);
@@ -72,5 +85,29 @@ public class ResourceManager : MonoBehaviour
         numTomato++;
         TomatoText.text = numTomato.ToString();
     }
+
+    // PURCHASE PERKS
+    public void OnClickUpgradeStoveButton(){
+        StoveLevelNum++;
+        if (StoveLevelNum < 4){
+            StoveLevel.GetComponent<Image>().sprite = Levels[StoveLevelNum];
+        }
+    }
+
+    public void OnClickUpgradeTipsButton(){
+        TipsLevelNum++;
+        if (TipsLevelNum < 4){
+            TipsLevel.GetComponent<Image>().sprite = Levels[TipsLevelNum];
+        }
+    }
+
+    public void OnClickUpgradePatienceButton(){
+        PatienceLevelNum++;
+        if (PatienceLevelNum < 4){
+            PatienceLevel.GetComponent<Image>().sprite = Levels[PatienceLevelNum];
+        }
+    }
+
+
 
 }
