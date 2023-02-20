@@ -27,10 +27,6 @@ public class ItemController : MonoBehaviour
         else {
             Debug.Log("Using item...");
         }
-        switch(item.itemType)
-        {
-            
-        }
 
         RemoveItem();
     }

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    public Item Item;
+    public Item item;
 
     void Pickup()
     {
         if (HoldingItem.Instance.capacity < HoldingItem.Instance.maxCapacity) {
-            HoldingItem.Instance.Add(Item);
+            HoldingItem.Instance.Add(item);
             HoldingItem.Instance.ListItems();
         }
     }

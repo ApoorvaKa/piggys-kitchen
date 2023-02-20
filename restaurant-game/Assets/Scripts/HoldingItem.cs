@@ -75,7 +75,7 @@ public class HoldingItem : MonoBehaviour
             // itemName.text = item.itemName;
         }
 
-        // SetInventoryItems();
+        SetInventoryItems();
     }
 
     void Update()
