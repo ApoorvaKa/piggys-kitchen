@@ -26,18 +26,7 @@ public class ResourceManager : MonoBehaviour
     public int numButter = 0;
     public int numTomato = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // UI INTERACTION
     public void OnClickIngredientsButton(){
         DayCompleteMenu.SetActive(false);
         IngredientsMenu.SetActive(true);
@@ -58,6 +47,7 @@ public class ResourceManager : MonoBehaviour
         DayCompleteMenu.SetActive(true);
     }
 
+    // PURCHASE INGREDIENTS
     public void OnClickBuyBreadButton(){
         numBread++;
         BreadText.text = numBread.ToString();
