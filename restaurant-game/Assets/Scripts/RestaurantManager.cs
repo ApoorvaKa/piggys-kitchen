@@ -16,6 +16,7 @@ public class RestaurantManager : MonoBehaviour
     public Image timerBar;
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI[] itemTexts;
+    public string[] itemNames;
     public int[] itemAmounts;
     [SerializeField]
     float currentTime, maxTime;
@@ -30,10 +31,15 @@ public class RestaurantManager : MonoBehaviour
     void Update()
     {
         for (int i = 0; i < itemTexts.Length; i++) {
-            itemTexts[i].text = "TestItem" + i.ToString() + ": " + itemAmounts[i].ToString();
+            itemTexts[i].text = itemNames[i] + ": " + itemAmounts[i].ToString();
         }
         moneyText.text = "$ " + money.ToString();
-        currentTime -= Time.deltaTime;
-        timerBar.fillAmount = currentTime / maxTime;
+        if (currentTime > 0) {
+            currentTime -= Time.deltaTime;
+            timerBar.fillAmount = currentTime / maxTime;
+        } else {
+            Debug.Log("Time");
+            Time.timeScale = 0;
+        }
     }
 }

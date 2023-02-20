@@ -5,18 +5,29 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     public Item item;
+    GameObject player;
+    float distance;
+    public RestaurantManager inventory;
+    [SerializeField]
+    float maxDistance;
+
+    void Start() {
+        player = FindObjectOfType<Player>().gameObject;
+    }
 
     void Pickup()
     {
-        if (HoldingItem.Instance.capacity < HoldingItem.Instance.maxCapacity) {
+        if (HoldingItem.Instance.capacity < HoldingItem.Instance.maxCapacity && inventory.itemAmounts[item.id] > 0) {
+            inventory.itemAmounts[item.id] -= 1;
             HoldingItem.Instance.Add(item);
             HoldingItem.Instance.ListItems();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void Update()
     {
-        if (other.tag == "Player") {
+        distance = Vector2.Distance(transform.position, player.transform.position);
+        if (distance < maxDistance && Input.GetKeyDown("space")) {
             Pickup();
         }
     }

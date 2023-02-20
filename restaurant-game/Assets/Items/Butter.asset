@@ -12,10 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dde89cd76f87421abe0b88f83d48968, type: 3}
   m_Name: Butter
   m_EditorClassIdentifier: 
-  id: 1
-  itemName: Butter
-  value: 0
+  id: 2
   icon: {fileID: 0}
-  message: 
   itemType: 2
-  displayName: Butter
