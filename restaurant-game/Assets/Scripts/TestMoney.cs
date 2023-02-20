@@ -5,18 +5,19 @@ using UnityEngine;
 public class TestMoney : MonoBehaviour
 {
     public RestaurantManager moneySystem;
-    public int amount;
+    /*
     [SerializeField]
     int itemID;
+    */
 
-    public void increaseMoneyTest() {
+    public void increaseMoney(int amount) {
         moneySystem.money += amount;
     }
 
-    public void decreaseMoneyTest() {
+    public void decreaseMoney(int amount) {
         if (moneySystem.money >= amount) {
             moneySystem.money -= amount;
-            moneySystem.itemAmounts[itemID] += 1;
+            //moneySystem.itemAmounts[itemID] += 1;
         }
     }
 }
