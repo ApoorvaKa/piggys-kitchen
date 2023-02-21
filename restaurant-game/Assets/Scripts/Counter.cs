@@ -11,6 +11,9 @@ public class Counter : MonoBehaviour
     [SerializeField]
     float maxDistance;
     float distance;
+    public RestaurantManager timer;
+    public SpriteRenderer counterItem;
+    public Sprite[] sprites;
 
     void Start() {
         player = FindObjectOfType<Player>().gameObject;
@@ -35,6 +38,27 @@ public class Counter : MonoBehaviour
                     item = null;
                 }
             }
+        }
+        if (timer.currentTime <= 0) {
+            item = null;
+        }
+        
+        if (item == null) {
+            counterItem.sprite = null;
+        } else if (item.itemType == Item.ItemType.Bread) {
+            counterItem.sprite = sprites[0];
+        } else if (item.itemType == Item.ItemType.Cheese) {
+            counterItem.sprite = sprites[1];
+        } else if (item.itemType == Item.ItemType.Butter) {
+            counterItem.sprite = sprites[2];
+        } else if (item.itemType == Item.ItemType.BreadCheese) {
+            counterItem.sprite = sprites[3];
+        } else if (item.itemType == Item.ItemType.GrilledCheese) {
+            counterItem.sprite = sprites[4];
+        } else if (item.itemType == Item.ItemType.Tomato) {
+            counterItem.sprite = sprites[5];
+        } else if (item.itemType == Item.ItemType.TomatoSoup) {
+            counterItem.sprite = sprites[6];
         }
     }
 
