@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BreadCheese
   m_EditorClassIdentifier: 
   id: 3
-  icon: {fileID: 0}
+  icon: {fileID: -1480683275, guid: 453a47d0b3a2e4aa9b05f270e39bc2c6, type: 3}
   itemType: 3
