@@ -1435,6 +1435,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -220
       objectReference: {fileID: 0}
+    - target: {fileID: 5881846932671846155, guid: 7cdb7de49c73b47b2b9f218f088ea030, type: 3}
+      propertyPath: m_Name
+      value: TotalGold
+      objectReference: {fileID: 0}
     - target: {fileID: 5881846932874090644, guid: 7cdb7de49c73b47b2b9f218f088ea030, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -4815,6 +4819,9 @@ MonoBehaviour:
   dayComplete: {fileID: 440299965}
   timerBar: {fileID: 461281275}
   moneyText: {fileID: 2109831974}
+  goldEarned: {fileID: 440299964}
+  dailyCosts: {fileID: 440299963}
+  totalGold: {fileID: 440299962}
   itemTexts:
   - {fileID: 1285876974}
   - {fileID: 741438113}
