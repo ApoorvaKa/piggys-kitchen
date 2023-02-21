@@ -70,8 +70,8 @@ public class HoldingItem : MonoBehaviour
             // var itemName = obj.transform.Find("Item/ItemName").GetComponent<Text>();
 
             // Set icons for inventory
-            // var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
-            // itemIcon.sprite = item.icon;
+            Image itemIcon = obj.GetComponent<Image>();
+            itemIcon.sprite = item.icon;
             // itemName.text = item.itemName;
         }
 

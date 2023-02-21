@@ -7,14 +7,15 @@ using TMPro;
 public class RestaurantManager : MonoBehaviour
 {
     public int money = 0;
-    public int money_multiplier = 1;
     public int money_per_second = 0;
+    public int round = 1;
+    int dailyCost = 10;
 
     public GameObject background, dayComplete;
     GameObject player;
 
     public Image timerBar;
-    public TextMeshProUGUI moneyText;
+    public TextMeshProUGUI moneyText, goldEarned, dailyCosts, totalGold;
     public TextMeshProUGUI[] itemTexts;
     public string[] itemNames;
     public int[] itemAmounts;
@@ -44,8 +45,24 @@ public class RestaurantManager : MonoBehaviour
             if (currentTime <= 0) {
                 background.SetActive(true);
                 dayComplete.SetActive(true);
+                goldEarned.text = money.ToString();
+                dailyCost = (int)Mathf.Pow(2f, (float)round-1f) * 10;
+                dailyCosts.text = dailyCost.ToString();
+                money -= dailyCost;
+                totalGold.text = money.ToString();
             }
             currentTime = maxTime;
+        }
+    }
+
+    public void NextRound() {
+        if (money >= 0) {
+            round += 1;
+            player.GetComponent<Player>().canMove = true;
+            background.SetActive(false);
+            dayComplete.SetActive(false);
+        } else {
+            Debug.Log("GameOver");
         }
     }
 }

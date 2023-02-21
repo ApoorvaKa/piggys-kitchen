@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: Bread
   m_EditorClassIdentifier: 
   id: 0
-  itemName: Bread
-  value: 0
-  icon: {fileID: 0}
-  message: 
+  icon: {fileID: -1333297839, guid: 5793fbd09c4a54039b19d75181ea94be, type: 3}
   itemType: 0
-  displayName: Bread

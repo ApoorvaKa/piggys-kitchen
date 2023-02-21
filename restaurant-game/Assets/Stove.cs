@@ -8,6 +8,7 @@ public class Stove : MonoBehaviour
     [SerializeField]
     Item uncookedSandwich, grilledCheese;
     GameObject player;
+    public ResourceManager stoveLevel;
     [SerializeField]
     float maxDistance, burntTime, readyTime;
     float distance, timer;
@@ -38,7 +39,7 @@ public class Stove : MonoBehaviour
             timer += Time.deltaTime;
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 0);
         }
-        if (timer >= readyTime && timer < burntTime) {
+        if (timer >= (readyTime - stoveLevel.StoveLevelNum * 2) && timer < burntTime) {
             item = grilledCheese;
             if (timer < burntTime - 5) {
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0);

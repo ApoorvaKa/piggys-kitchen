@@ -44,6 +44,10 @@ public class ResourceManager : MonoBehaviour
     [Header("Perks Sprites")]
     public Sprite[] Levels;
 
+    public int[] ingredientCosts;
+    public int[] perkCosts;
+    public RestaurantManager restaurant;
+
     // GENERAL UI INTERACTION
     public void OnClickIngredientsButton(){
         DayCompleteMenu.SetActive(false);
@@ -66,48 +70,67 @@ public class ResourceManager : MonoBehaviour
     }
 
     // PURCHASE INGREDIENTS
-    public void OnClickBuyBreadButton(){
-        numBread++;
-        BreadText.text = numBread.ToString();
+    public void OnClickBuyBreadButton()
+    {
+        if (restaurant.money >= ingredientCosts[0]) {
+            restaurant.itemAmounts[0] += 1;
+            restaurant.money -= ingredientCosts[0];
+        }
     }
 
     public void OnClickBuyCheeseButton(){
-        numCheese++;
-        CheeseText.text = numCheese.ToString();
+        if (restaurant.money >= ingredientCosts[1]) {
+            restaurant.itemAmounts[1] += 1;
+            restaurant.money -= ingredientCosts[1];
+        }
     }
 
     public void OnClickBuyButterButton(){
-        numButter++;
-        ButterText.text = numButter.ToString();
+        if (restaurant.money >= ingredientCosts[2]) {
+            restaurant.itemAmounts[2] += 1;
+            restaurant.money -= ingredientCosts[2];
+        }
     }
 
     public void OnClickBuyTomatoButton(){
-        numTomato++;
-        TomatoText.text = numTomato.ToString();
+        if (restaurant.money >= ingredientCosts[3]) {
+            restaurant.itemAmounts[3] += 1;
+            restaurant.money -= ingredientCosts[3];
+        }
     }
 
     // PURCHASE PERKS
     public void OnClickUpgradeStoveButton(){
-        if (StoveLevelNum < 3){
+        if (StoveLevelNum < 3 && restaurant.money >= perkCosts[StoveLevelNum]){
+            restaurant.money -= perkCosts[StoveLevelNum];
             StoveLevelNum++;
             StoveLevel.GetComponent<Image>().sprite = Levels[StoveLevelNum];
         }
     }
 
     public void OnClickUpgradeTipsButton(){
-        if (TipsLevelNum < 3){
+        if (TipsLevelNum < 3 && restaurant.money >= perkCosts[TipsLevelNum]){
+            restaurant.money -= perkCosts[TipsLevelNum];
             TipsLevelNum++;
             TipsLevel.GetComponent<Image>().sprite = Levels[TipsLevelNum];
         }
     }
 
     public void OnClickUpgradePatienceButton(){
-        if (PatienceLevelNum < 3){
+        if (PatienceLevelNum < 3 && restaurant.money >= perkCosts[PatienceLevelNum]){
+            restaurant.money -= perkCosts[PatienceLevelNum];
             PatienceLevelNum++;
             PatienceLevel.GetComponent<Image>().sprite = Levels[PatienceLevelNum];
         }
     }
 
-
-
+    void Update() {
+        BreadText.text = restaurant.itemAmounts[0].ToString();
+        CheeseText.text = restaurant.itemAmounts[1].ToString();
+        ButterText.text = restaurant.itemAmounts[2].ToString();
+        TomatoText.text = restaurant.itemAmounts[3].ToString();
+        StoveCostText.text = perkCosts[StoveLevelNum].ToString();
+        TipsCostText.text = perkCosts[TipsLevelNum].ToString();
+        PatienceCostText.text = perkCosts[PatienceLevelNum].ToString();
+    }
 }
