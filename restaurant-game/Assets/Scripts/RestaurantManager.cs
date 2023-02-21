@@ -7,7 +7,6 @@ using TMPro;
 public class RestaurantManager : MonoBehaviour
 {
     public int money = 0;
-    public int money_multiplier = 1;
     public int money_per_second = 0;
     public int round = 1;
 

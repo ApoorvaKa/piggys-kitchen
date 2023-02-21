@@ -9,7 +9,8 @@ public class SubmitDish : MonoBehaviour
     [SerializeField]
     float maxDistance;
     [SerializeField]
-    int lowGain, highGain;
+    int[] lowGain, highGain;
+    public ResourceManager tipLevel;
     float distance;
 
     void Start() {
@@ -21,7 +22,7 @@ public class SubmitDish : MonoBehaviour
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
         if (distance < maxDistance && Input.GetKeyDown("space") && HoldingItem.Instance.Items[0].itemType == Item.ItemType.GrilledCheese) {
-            money.increaseMoney(Random.Range(lowGain,highGain));
+            money.increaseMoney(Random.Range(lowGain[tipLevel.TipsLevelNum],highGain[tipLevel.TipsLevelNum]));
             HoldingItem.Instance.Items.Remove(HoldingItem.Instance.Items[0]);
             HoldingItem.Instance.ListItems();
         }
