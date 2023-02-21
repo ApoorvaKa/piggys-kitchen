@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GrilledCheese
   m_EditorClassIdentifier: 
   id: 5
-  icon: {fileID: 0}
+  icon: {fileID: 253915451, guid: 453a47d0b3a2e4aa9b05f270e39bc2c6, type: 3}
   itemType: 5
