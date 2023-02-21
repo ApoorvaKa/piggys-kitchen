@@ -15,7 +15,9 @@ public class Item : ScriptableObject
         Butter,
         BreadCheese,
         RawSandwich,
-        GrilledCheese
+        GrilledCheese,
+        Tomato,
+        TomatoSoup
     }
 }
  
