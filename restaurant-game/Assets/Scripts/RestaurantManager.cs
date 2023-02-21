@@ -9,6 +9,7 @@ public class RestaurantManager : MonoBehaviour
     public int money = 0;
     public int money_multiplier = 1;
     public int money_per_second = 0;
+    public int round = 1;
 
     public GameObject background, dayComplete;
     GameObject player;
@@ -47,5 +48,12 @@ public class RestaurantManager : MonoBehaviour
             }
             currentTime = maxTime;
         }
+    }
+
+    public void NextRound() {
+        round += 1;
+        player.GetComponent<Player>().canMove = true;
+        background.SetActive(false);
+        dayComplete.SetActive(false);
     }
 }

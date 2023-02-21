@@ -377,6 +377,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4531555765424279618, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
+      propertyPath: stove
+      value: 
+      objectReference: {fileID: 1158933872}
+    - target: {fileID: 4531555765424279618, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
       propertyPath: BreadText
       value: 
       objectReference: {fileID: 1853437428}
@@ -404,6 +408,10 @@ PrefabInstance:
       propertyPath: TomatoText
       value: 
       objectReference: {fileID: 1853437425}
+    - target: {fileID: 4531555765424279618, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
+      propertyPath: restaurant
+      value: 
+      objectReference: {fileID: 2028277369}
     - target: {fileID: 4531555765424279618, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
       propertyPath: TipsCostText
       value: 
@@ -440,6 +448,46 @@ PrefabInstance:
       propertyPath: PatienceCostText
       value: 
       objectReference: {fileID: 522857081}
+    - target: {fileID: 4531555765424279618, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
+      propertyPath: perkCosts.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531555765424279618, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
+      propertyPath: perkCosts.Array.data[0]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531555765424279618, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
+      propertyPath: perkCosts.Array.data[1]
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531555765424279618, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
+      propertyPath: perkCosts.Array.data[2]
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531555765424279618, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
+      propertyPath: perkCosts.Array.data[3]
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531555765424279618, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
+      propertyPath: ingredientCosts.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531555765424279618, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
+      propertyPath: ingredientCosts.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531555765424279618, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
+      propertyPath: ingredientCosts.Array.data[1]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531555765424279618, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
+      propertyPath: ingredientCosts.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531555765424279618, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
+      propertyPath: ingredientCosts.Array.data[3]
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4531555765424279619, guid: 2a8621dafacd0496a945661190baaf3b, type: 3}
       propertyPath: m_Name
       value: UI Manager
@@ -1410,6 +1458,34 @@ PrefabInstance:
     - target: {fileID: 5881846932874090644, guid: 7cdb7de49c73b47b2b9f218f088ea030, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881846932978057971, guid: 7cdb7de49c73b47b2b9f218f088ea030, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881846932978057971, guid: 7cdb7de49c73b47b2b9f218f088ea030, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881846932978057971, guid: 7cdb7de49c73b47b2b9f218f088ea030, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2028277369}
+    - target: {fileID: 5881846932978057971, guid: 7cdb7de49c73b47b2b9f218f088ea030, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881846932978057971, guid: 7cdb7de49c73b47b2b9f218f088ea030, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextRound
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881846932978057971, guid: 7cdb7de49c73b47b2b9f218f088ea030, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RestaurantManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881846932978057971, guid: 7cdb7de49c73b47b2b9f218f088ea030, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5881846932978057972, guid: 7cdb7de49c73b47b2b9f218f088ea030, type: 3}
       propertyPath: m_LocalScale.x
@@ -4151,6 +4227,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 1816246286581926522, guid: 8697b32fb1bd14b13a999f8bafeb0ac7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1816246286583362680, guid: 8697b32fb1bd14b13a999f8bafeb0ac7, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -4726,9 +4806,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b64c7259fcd44d2dbb8d38e2cb75628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 0
+  money: 100
   money_multiplier: 1
   money_per_second: 0
+  round: 1
   background: {fileID: 416906763}
   dayComplete: {fileID: 440299965}
   timerBar: {fileID: 461281275}
@@ -4741,7 +4822,8 @@ MonoBehaviour:
   - Bread
   - Cheese
   - Butter
-  itemAmounts: 030000000300000003000000
+  - Tomato
+  itemAmounts: 03000000030000000300000003000000
   currentTime: 0
   maxTime: 5
 --- !u!114 &2028277370
