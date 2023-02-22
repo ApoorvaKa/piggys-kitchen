@@ -15,6 +15,9 @@ public class Counter : MonoBehaviour
     public SpriteRenderer counterItem;
     public Sprite[] sprites;
 
+    public AudioSource source;
+    public AudioClip[] clips;
+
     void Start() {
         player = FindObjectOfType<Player>().gameObject;
     }
@@ -27,10 +30,17 @@ public class Counter : MonoBehaviour
                     item = HoldingItem.Instance.Items[0];
                     HoldingItem.Instance.Items.Remove(HoldingItem.Instance.Items[0]);
                     HoldingItem.Instance.ListItems();
+                    source.clip = clips[0];
+                    source.Play();
                 } else if ((item.itemType == Item.ItemType.Bread && HoldingItem.Instance.Items[0].itemType == Item.ItemType.Cheese) || (item.itemType == Item.ItemType.Cheese && HoldingItem.Instance.Items[0].itemType == Item.ItemType.Bread)) {
                     item = breadCheese;
                     HoldingItem.Instance.Items.Remove(HoldingItem.Instance.Items[0]);
                     HoldingItem.Instance.ListItems();
+                    source.clip = clips[0];
+                    source.Play();
+                } else {
+                    source.clip = clips[2];
+                    source.Play();
                 }
             } else {
                 if (item != null) {
@@ -67,6 +77,8 @@ public class Counter : MonoBehaviour
         if (HoldingItem.Instance.capacity < HoldingItem.Instance.maxCapacity) {
             HoldingItem.Instance.Add(item);
             HoldingItem.Instance.ListItems();
+            source.clip = clips[1];
+            source.Play();
         }
     }
 }

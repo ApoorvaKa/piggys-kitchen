@@ -16,6 +16,9 @@ public class Stove : MonoBehaviour
     float distance, timer;
     bool isCooking = false;
 
+    public AudioSource source;
+    public AudioClip[] clips;
+
     void Start() {
         player = FindObjectOfType<Player>().gameObject;
     }
@@ -29,11 +32,15 @@ public class Stove : MonoBehaviour
                     HoldingItem.Instance.Items.Remove(HoldingItem.Instance.Items[0]);
                     HoldingItem.Instance.ListItems();
                     gameObject.GetComponent<SpriteRenderer>().sprite = sprites[1];
+                    source.clip = clips[0];
+                    source.Play();
                 } else if (item.itemType != HoldingItem.Instance.Items[0].itemType) {
                     item = uncookedSandwich;
                     HoldingItem.Instance.Items.Remove(HoldingItem.Instance.Items[0]);
                     HoldingItem.Instance.ListItems();
                     isCooking = true;
+                    source.clip = clips[1];
+                    source.Play();
                 }
             } else if (HoldingItem.Instance.Items[0].itemType == Item.ItemType.Tomato && item == null) {
                 item = tomato;
@@ -41,6 +48,11 @@ public class Stove : MonoBehaviour
                 HoldingItem.Instance.ListItems();
                 isCooking = true;
                 gameObject.GetComponent<SpriteRenderer>().sprite = sprites[2];
+                source.clip = clips[2];
+                source.Play();
+            } else {
+                source.clip = clips[5];
+                source.Play();
             }
         }
 
@@ -49,6 +61,7 @@ public class Stove : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 0);
         }
         if (timer >= (readyTime - stoveLevel.StoveLevelNum * 2) && timer < burntTime) {
+            source.PlayOneShot(clips[4]);
             if (item.itemType == Item.ItemType.Tomato) {
                 item = tomatoSoup;
             }
@@ -67,14 +80,18 @@ public class Stove : MonoBehaviour
                 isCooking = false;
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
                 gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
+                source.clip = clips[3];
+                source.Play();
             }
         }
         if (timer >= burntTime || roundTime.currentTime <= 0) {
             item = null;
             timer = 0;
+            source.PlayOneShot(clips[5]);
             isCooking = false;
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
             gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
+            source.Stop();
         }
     }
 

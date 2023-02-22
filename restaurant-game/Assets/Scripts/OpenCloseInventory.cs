@@ -8,6 +8,9 @@ public class OpenCloseInventory : MonoBehaviour
     public GameObject inventoryUI;
     public bool isOpen = false;
 
+    public AudioClip[] clips;
+    public AudioSource source;
+
     void Update() {
         inventoryButton.SetActive(!isOpen);
     }
@@ -15,10 +18,14 @@ public class OpenCloseInventory : MonoBehaviour
     public void openInventory() {
         isOpen = true;
         inventoryUI.SetActive(true);
+        source.clip = clips[0];
+        source.Play();
     }
 
     public void back() {
         isOpen = false;
         inventoryUI.SetActive(false);
+        source.clip = clips[1];
+        source.Play();
     }
 }
