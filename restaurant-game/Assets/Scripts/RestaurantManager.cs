@@ -9,12 +9,13 @@ public class RestaurantManager : MonoBehaviour
     public int money = 0;
     public int money_per_second = 0;
     public int round = 1;
-    int dailyCost = 10;
+    int dailyCost = 10, startingGold = 0;
 
     public GameObject background, dayComplete;
     GameObject player;
 
     public Image timerBar;
+    public ResourceManager upgrade;
     public TextMeshProUGUI moneyText, goldEarned, dailyCosts, totalGold;
     public TextMeshProUGUI[] itemTexts;
     public string[] itemNames;
@@ -34,25 +35,25 @@ public class RestaurantManager : MonoBehaviour
     void Update()
     {
         for (int i = 0; i < itemTexts.Length; i++) {
-            itemTexts[i].text = itemNames[i] + ": " + itemAmounts[i].ToString();
+            itemTexts[i].text = itemAmounts[i].ToString();
         }
-        moneyText.text = "$ " + money.ToString();
+        moneyText.text = money.ToString();
         if (currentTime > 0 && player.GetComponent<Player>().canMove == true) {
             currentTime -= Time.deltaTime;
             timerBar.fillAmount = currentTime / maxTime;
         } else {
             Debug.Log("Time");
             player.GetComponent<Player>().canMove = false;
+            totalGold.text = money.ToString();
             if (currentTime <= 0) {
                 background.SetActive(true);
                 dayComplete.SetActive(true);
-                goldEarned.text = money.ToString();
                 dailyCost = (int)Mathf.Pow(2f, (float)round-1f) * 10;
                 dailyCosts.text = dailyCost.ToString();
+                goldEarned.text = (money-startingGold).ToString() + "+" + startingGold.ToString();
                 money -= dailyCost;
-                totalGold.text = money.ToString();
             }
-            currentTime = maxTime;
+            currentTime = maxTime + (upgrade.PatienceLevelNum * 20);
         }
     }
 
@@ -62,6 +63,7 @@ public class RestaurantManager : MonoBehaviour
             player.GetComponent<Player>().canMove = true;
             background.SetActive(false);
             dayComplete.SetActive(false);
+            startingGold = money;
         } else {
             Debug.Log("GameOver");
         }
