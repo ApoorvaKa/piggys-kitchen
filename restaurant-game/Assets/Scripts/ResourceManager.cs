@@ -46,6 +46,9 @@ public class ResourceManager : MonoBehaviour
 
     public int[] ingredientCosts;
     public int[] perkCosts;
+    public GameObject[] coinIcons;
+    public Image[] buttons;
+    public Sprite fullyUpgraded;
     public RestaurantManager restaurant;
 
     // GENERAL UI INTERACTION
@@ -129,8 +132,26 @@ public class ResourceManager : MonoBehaviour
         CheeseText.text = restaurant.itemAmounts[1].ToString();
         ButterText.text = restaurant.itemAmounts[2].ToString();
         TomatoText.text = restaurant.itemAmounts[3].ToString();
-        StoveCostText.text = perkCosts[StoveLevelNum].ToString();
-        TipsCostText.text = perkCosts[TipsLevelNum].ToString();
-        PatienceCostText.text = perkCosts[PatienceLevelNum].ToString();
+        if (StoveLevelNum < 3) {
+            StoveCostText.text = perkCosts[StoveLevelNum].ToString();
+        } else {
+            StoveCostText.text = "";
+            coinIcons[0].SetActive(false);
+            buttons[0].sprite = fullyUpgraded;
+        }
+        if (TipsLevelNum < 3) {
+            TipsCostText.text = perkCosts[TipsLevelNum].ToString();
+        } else {
+            TipsCostText.text = "";
+            coinIcons[1].SetActive(false);
+            buttons[1].sprite = fullyUpgraded;
+        }
+        if (PatienceLevelNum < 3) {
+            PatienceCostText.text = perkCosts[PatienceLevelNum].ToString();
+        } else {
+            PatienceCostText.text = "";
+            coinIcons[2].SetActive(false);
+            buttons[3].sprite = fullyUpgraded;
+        }
     }
 }

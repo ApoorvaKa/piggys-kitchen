@@ -15,6 +15,7 @@ public class RestaurantManager : MonoBehaviour
     GameObject player;
 
     public Image timerBar;
+    public ResourceManager upgrade;
     public TextMeshProUGUI moneyText, goldEarned, dailyCosts, totalGold;
     public TextMeshProUGUI[] itemTexts;
     public string[] itemNames;
@@ -34,7 +35,7 @@ public class RestaurantManager : MonoBehaviour
     void Update()
     {
         for (int i = 0; i < itemTexts.Length; i++) {
-            itemTexts[i].text = itemNames[i] + ": " + itemAmounts[i].ToString();
+            itemTexts[i].text = itemAmounts[i].ToString();
         }
         moneyText.text = "$ " + money.ToString();
         if (currentTime > 0 && player.GetComponent<Player>().canMove == true) {
@@ -52,7 +53,7 @@ public class RestaurantManager : MonoBehaviour
                 money -= dailyCost;
                 totalGold.text = money.ToString();
             }
-            currentTime = maxTime;
+            currentTime = maxTime + (upgrade.PatienceLevelNum * 20);
         }
     }
 
