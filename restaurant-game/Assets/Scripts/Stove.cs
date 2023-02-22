@@ -16,7 +16,7 @@ public class Stove : MonoBehaviour
     float distance, timer;
     bool isCooking = false;
 
-    public AudioSource source;
+    public AudioSource source, otherSource;
     public AudioClip[] clips;
 
     void Start() {
@@ -61,7 +61,8 @@ public class Stove : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 0);
         }
         if (timer >= (readyTime - stoveLevel.StoveLevelNum * 2) && timer < burntTime) {
-            //source.PlayOneShot(clips[4]);
+            otherSource.clip = clips[4];
+            otherSource.Play();
             if (item.itemType == Item.ItemType.Tomato) {
                 item = tomatoSoup;
             }
@@ -87,8 +88,8 @@ public class Stove : MonoBehaviour
         if (timer >= burntTime || roundTime.currentTime <= 0) {
             item = null;
             timer = 0;
-            source.clip = clips[5];
-            source.Play();
+            otherSource.clip = clips[5];
+            otherSource.Play();
             isCooking = false;
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
             gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
