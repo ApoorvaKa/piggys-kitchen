@@ -17,7 +17,6 @@ public class TestMoney : MonoBehaviour
     public void decreaseMoney(int amount) {
         if (moneySystem.money >= amount) {
             moneySystem.money -= amount;
-            //moneySystem.itemAmounts[itemID] += 1;
         }
     }
 }

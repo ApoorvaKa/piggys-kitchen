@@ -16,8 +16,9 @@ public class RestaurantManager : MonoBehaviour
 
     public Image timerBar;
     public ResourceManager upgrade;
-    public TextMeshProUGUI moneyText, goldEarned, dailyCosts, totalGold;
+    public TextMeshProUGUI moneyText, goldEarned, dailyCosts, totalGold, roundText;
     public TextMeshProUGUI[] itemTexts;
+    public SubmitDish orders;
     public string[] itemNames;
     public int[] itemAmounts;
     [SerializeField]
@@ -38,6 +39,7 @@ public class RestaurantManager : MonoBehaviour
             itemTexts[i].text = itemAmounts[i].ToString();
         }
         moneyText.text = money.ToString();
+        roundText.text = "Round " + round.ToString();
         if (currentTime > 0 && player.GetComponent<Player>().canMove == true) {
             currentTime -= Time.deltaTime;
             timerBar.fillAmount = currentTime / maxTime;
@@ -64,6 +66,7 @@ public class RestaurantManager : MonoBehaviour
             background.SetActive(false);
             dayComplete.SetActive(false);
             startingGold = money;
+            orders.Randomize(round);
         } else {
             Debug.Log("GameOver");
         }

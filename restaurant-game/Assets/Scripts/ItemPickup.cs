@@ -11,6 +11,9 @@ public class ItemPickup : MonoBehaviour
     [SerializeField]
     float maxDistance;
 
+    public AudioClip[] clips;
+    public AudioSource source;
+
     void Start() {
         player = FindObjectOfType<Player>().gameObject;
     }
@@ -21,6 +24,11 @@ public class ItemPickup : MonoBehaviour
             inventory.itemAmounts[item.id] -= 1;
             HoldingItem.Instance.Add(item);
             HoldingItem.Instance.ListItems();
+            source.clip = clips[0];
+            source.Play();
+        } else {
+            source.clip = clips[1];
+            source.Play();
         }
     }
 
